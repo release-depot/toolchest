@@ -1,5 +1,5 @@
 Metadata-Version: 1.1
-Name: rd-utils
+Name: rd_utils
 Version: 0.0.1
 Summary: Miscellaneous functions for Release Depot
 Author: release-depot
@@ -18,7 +18,7 @@ Description: Release Depot
         
         or by using pip
         
-          $ pip install rd-utils
+          $ pip install rd_utils
         
         Documentation:
         --------------
@@ -36,4 +36,3 @@ Classifier: Topic :: Software Development
 Classifier: Topic :: Software Development :: Libraries
 Classifier: Topic :: Software Development :: Libraries :: Python Modules
 Classifier: Topic :: Utilities
-Requires: prettytable
