@@ -9,7 +9,7 @@ rd-utils runs on Python 3. Prettytable can be used, but is optional.
 ### Installing
 rd-utils is available on PyPI; it can be installed by running:
 ```
-pip install rd-utils
+pip install rd_utils
 ```
 Alternatively, one could simply clone this repository and run:
 ```
