@@ -72,7 +72,7 @@ class test_split_filename(unittest.TestCase):
         f = ('0', '6.0.0', '0.2.0rc2.el7ost')
         g = ('0', '6.0.0', '0.3.0rc2.el7ost')
         # new dlrn
-        l = ('0', '6.1.1', '0.2.20170217063119.ad33b59.el7ost')
+        new_dlrn = ('0', '6.1.1', '0.2.20170217063119.ad33b59.el7ost')
 
         # DLRN build vs not should be different
         self.assertEqual(rpmLabelCompare(a, b), -1)
@@ -88,12 +88,12 @@ class test_split_filename(unittest.TestCase):
         # should not matter
         self.assertEqual(rpmLabelCompare(a, c),
                          labelCompare(a, c))
-        self.assertEqual(rpmLabelCompare(l, d),
-                         labelCompare(l, d))
-        self.assertEqual(rpmLabelCompare(l, e),
-                         labelCompare(l, e))
-        self.assertEqual(rpmLabelCompare(l, b),
-                         labelCompare(l, b))
+        self.assertEqual(rpmLabelCompare(new_dlrn, d),
+                         labelCompare(new_dlrn, d))
+        self.assertEqual(rpmLabelCompare(new_dlrn, e),
+                         labelCompare(new_dlrn, e))
+        self.assertEqual(rpmLabelCompare(new_dlrn, b),
+                         labelCompare(new_dlrn, b))
 
         # Micro release difference should work even if it goes from
         # 1-2 digits (or 2-3, etc.)
