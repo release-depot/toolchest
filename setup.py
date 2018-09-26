@@ -5,7 +5,7 @@ import setuptools
 import re
 
 from textwrap import dedent
-from rd_utils import __version__
+from toolchest import __version__
 
 
 def requires(prefix=''):
@@ -21,7 +21,7 @@ def requires(prefix=''):
 
 
 setuptools.setup(
-    name='rd_utils',
+    name='toolchest',
     version=__version__,
     install_requires=requires(),
     license='MIT',
@@ -31,8 +31,8 @@ setuptools.setup(
     author_email='lhh@redhat.com',
     maintainer='Lon Hohberger',
     maintainer_email='lon@metamorphism.com',
-    packages=['rd_utils', 'rd_utils.rpm'],
-    url='http://github.com/release-depot/rd-utils',
+    packages=['toolchest', 'toolchest.rpm'],
+    url='http://github.com/release-depot/toolchest',
     data_files=[("", ["LICENSE"])],
     classifiers=['Development Status :: 4 - Beta',
                  'Intended Audience :: Developers',

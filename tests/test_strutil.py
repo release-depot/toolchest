@@ -1,6 +1,6 @@
 import unittest
 
-from rd_utils.strutil import list_or_splitstr
+from toolchest.strutil import list_or_splitstr
 
 
 class test_list_or_splitstr(unittest.TestCase):
