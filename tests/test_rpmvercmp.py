@@ -1,6 +1,6 @@
 import unittest
 
-from rd_utils.rpm.rpmvercmp import rpmvercmp
+from toolchest.rpm.rpmvercmp import rpmvercmp
 
 
 class test_rpmvercmp(unittest.TestCase):

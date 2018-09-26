@@ -2,7 +2,7 @@
 
 import re
 
-from rd_utils.rpm.rpmvercmp import labelCompare as rpmLabelCompare
+from toolchest.rpm.rpmvercmp import labelCompare as rpmLabelCompare
 
 
 def split_filename_fast(nvr):

@@ -1,5 +1,5 @@
 Metadata-Version: 1.1
-Name: rd_utils
+Name: toolchest
 Version: 0.0.1
 Summary: Miscellaneous functions for Release Depot
 Author: release-depot
@@ -18,7 +18,7 @@ Description: Release Depot
         
         or by using pip
         
-          $ pip install rd_utils
+          $ pip install toolchest
         
         Documentation:
         --------------

@@ -1,15 +1,15 @@
-# rd-utils
+# toolchest
 
-rd-utils is a collection of generic functions for release-depot.
+toolchest is a collection of generic functions for release-depot.
 
 ### Prerequisites
 
-rd-utils runs on Python 3. Prettytable can be used, but is optional.
+toolchest runs on Python 3. Prettytable can be used, but is optional.
 
 ### Installing
-rd-utils is available on PyPI; it can be installed by running:
+toolchest is available on PyPI; it can be installed by running:
 ```
-pip install rd_utils
+pip install toolchest
 ```
 Alternatively, one could simply clone this repository and run:
 ```
@@ -26,6 +26,7 @@ Please fork and issue pull requests.
 
 ## Authors
 * **Lon Hohberger** - *Bugfixes*
+* **Jay Guiditta** - *Travis CI integration, cleanups, test updates*
 
 ## License
 

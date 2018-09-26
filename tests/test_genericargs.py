@@ -1,6 +1,6 @@
 import unittest
 
-from rd_utils.genericargs import GenericArgs
+from toolchest.genericargs import GenericArgs
 
 
 class test_genericargs(unittest.TestCase):

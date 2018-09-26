@@ -1,12 +1,12 @@
 import unittest
 
-from rd_utils.rpm.utils import split_filename
+from toolchest.rpm.utils import split_filename
 
 # Handles DLRN versions
-from rd_utils.rpm.utils import labelCompare
+from toolchest.rpm.utils import labelCompare
 
 # Compare vs. baseline
-from rd_utils.rpm.rpmvercmp import labelCompare as rpmLabelCompare
+from toolchest.rpm.rpmvercmp import labelCompare as rpmLabelCompare
 
 
 class test_split_filename(unittest.TestCase):
