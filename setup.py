@@ -4,8 +4,13 @@
 import setuptools
 import re
 
-from textwrap import dedent
 from toolchest import __version__
+
+with open('README.rst') as readme_file:
+    readme = readme_file.read()
+
+with open('HISTORY.rst') as history_file:
+    history = history_file.read()
 
 
 def requires(prefix=''):
@@ -25,8 +30,9 @@ setuptools.setup(
     version=__version__,
     install_requires=requires(),
     license='MIT',
-    long_description=dedent("""\
-        """),
+    description=("toolchest is a collection of generic "
+                 "functions for release-depot."),
+    long_description=readme + '\n\n' + history,
     author='Red Hat',
     author_email='lhh@redhat.com',
     maintainer='Lon Hohberger',
@@ -38,7 +44,10 @@ setuptools.setup(
                  'Intended Audience :: Developers',
                  'Natural Language :: English',
                  'Operating System :: POSIX :: Linux',
-                 'Programming Language :: Python',
+                 'Programming Language :: Python :: 3',
+                 'Programming Language :: Python :: 3.4',
+                 'Programming Language :: Python :: 3.5',
+                 'Programming Language :: Python :: 3.6',
                  'Topic :: Software Development',
                  'Topic :: Software Development :: Libraries',
                  'Topic :: Software Development :: Libraries :: Python Modules',
