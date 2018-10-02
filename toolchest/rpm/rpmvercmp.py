@@ -14,10 +14,15 @@
 # compatible with rpmvercmp.c's implementation.
 def rpmvercmp(left, right):
     """
+    Determines which label string has a higher value.
+
+    This is for purposes of determining with version of a build is newer, or if
+    they are equivalent based on string comparison.
+
     :param left: The left value to compare. Must be a string.
     :param right: The right value to compare. Must be a string.
     :returns: -1, 0, or 1 if the left value is less than, equal to,
-    or greater than, the right value, respectively
+            or greater than, the right value, respectively
     """
 
     # Note: Enhancement, for Pungi
@@ -139,12 +144,17 @@ def rpmvercmp(left, right):
 # rpmVersionCompare() function.
 def labelCompare(left, right):
     """
+    Determines which label tuple has a higher value.
+
+    This is for purposes of determining with version of a build is newer, or if
+    they are equivalent taking into account epoch, version, release.
+
     :param left: The left value to compare. Must be a tuple of (epoch, version,
-    release) or (version, release).
+                 release) or (version, release).
     :param right: The right value to compare. Must be a tuple of (epoch,
-    version, release) or (version, release).
+                  version, release) or (version, release).
     :returns: -1, 0, or 1 if the left value is less than, equal to,
-    or greater than, the right value, respectively.
+              or greater than, the right value, respectively.
     """
 
     if not isinstance(left, tuple):

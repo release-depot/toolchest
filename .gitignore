@@ -3,3 +3,18 @@
 *~
 *.bak
 *.sw?
+
+# Distribution / packaging
+*.egg-info/
+*.eggs/
+build/
+dist/
+sdist/
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+
+# Sphinx documentation
+docs/_build/
+docs/source/

@@ -3,6 +3,19 @@ toolchest
 =========
 
 
+.. image:: https://img.shields.io/pypi/v/toolchest.svg
+        :target: https://pypi.python.org/pypi/toolchest
+
+.. image:: https://img.shields.io/travis/release-depot/toolchest.svg
+        :target: https://travis-ci.org/release-depot/toolchest
+
+.. image:: https://readthedocs.org/projects/toolchest/badge/?version=latest
+        :target: https://toolchest.readthedocs.io/en/latest/?badge=latest
+        :alt: Documentation Status
+
+
+
+
 toolchest is a collection of generic functions for release-depot.
 
 Prerequisites
@@ -25,7 +38,7 @@ Alternatively, one could simply clone this repository and run:
 Documentation
 -------------
 
-There is not any at the moment.
+https://toolchest.readthedocs.io.
 
 Contributing
 ------------
