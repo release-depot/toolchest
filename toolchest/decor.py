@@ -117,8 +117,8 @@ class PrettyTable(object):
             return self.pt.add_row(row)
 
         if len(row) != len(self.cols):
-            raise ValueError('Row length is ' + str(len(row)) +
-                             ', but should be ' + str(len(self.cols)))
+            msg = 'Row length is {0}, but should be {1}'
+            raise ValueError(msg.format(str(len(row)), str(len(self.cols))))
         self.rows.append(row)
 
     def get_string(self):

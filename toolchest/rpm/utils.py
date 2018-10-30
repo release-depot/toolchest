@@ -44,7 +44,7 @@ def splitFilename(nvr):
     arches = ['noarch', 'x86_64', 'i386', 'i486', 'i586',
               'i686', 'ppc', 'ppc64', 'ppc64le', 's390',
               's390x', 'aarch64', 'src']
-    arch_rx = '\.(' + '|'.join(arches) + ')$'
+    arch_rx = r'\.(' + '|'.join(arches) + ')$'
     if re.search(arch_rx, nvr):
         x = nvr.rfind('.')
         a = nvr[x + 1:]
@@ -131,13 +131,13 @@ def dlrn_label_compare(l, r):
     lv = l[1]
     lr = l[2]
 
-    dlrn_regex = '^0(\.[0-9]{1,2})?\.[0-9]{14}\.'
+    dlrn_regex = r'^0(\.[0-9]{1,2})?\.[0-9]{14}\.'
 
     if re.match(dlrn_regex, lr):
         l_is_dlrn = True
-    elif re.match('^0\.[0-9]{1,2}\.0rc[123](\.|$)', lr):
+    elif re.match(r'^0\.[0-9]{1,2}\.0rc[123](\.|$)', lr):
         l_is_rc = True
-    elif re.match('^0\.[0-9]{1,2}(\.|$)', lr):
+    elif re.match(r'^0\.[0-9]{1,2}(\.|$)', lr):
         l_is_ga = True
 
     rx = r[0]
@@ -146,9 +146,9 @@ def dlrn_label_compare(l, r):
 
     if re.match(dlrn_regex, rr):
         r_is_dlrn = True
-    elif re.match('^0\.[0-9]{1,2}\.0rc[123](\.|$)', rr):
+    elif re.match(r'^0\.[0-9]{1,2}\.0rc[123](\.|$)', rr):
         r_is_rc = True
-    elif re.match('^0\.[0-9]{1,2}(\.|$)', rr):
+    elif re.match(r'^0\.[0-9]{1,2}(\.|$)', rr):
         r_is_ga = True
 
     if r_is_dlrn == l_is_dlrn:
