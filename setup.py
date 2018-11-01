@@ -14,7 +14,7 @@ TEST_REQUIRES = ['coverage', 'flake8', 'pytest', 'pytest-datadir', 'tox']
 
 setup(
     name='toolchest',
-    version='0.0.2',
+    version='0.0.3',
     setup_requires=['pytest-runner'],
     install_requires=['pyyaml'],
     tests_require=TEST_REQUIRES,
