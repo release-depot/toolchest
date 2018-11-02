@@ -14,7 +14,7 @@ TEST_REQUIRES = ['coverage', 'flake8', 'pytest', 'pytest-datadir', 'tox']
 
 setup(
     name='toolchest',
-    version='0.0.3',
+    version='0.0.4',
     setup_requires=['pytest-runner'],
     install_requires=['pyyaml'],
     tests_require=TEST_REQUIRES,
@@ -30,7 +30,7 @@ setup(
     author_email='lhh@redhat.com',
     maintainer='Lon Hohberger',
     maintainer_email='lon@metamorphism.com',
-    packages=find_packages(include=['toolchest.*']),
+    packages=find_packages(),
     url='http://github.com/release-depot/toolchest',
     data_files=[("", ["LICENSE"])],
     test_suite='tests',
