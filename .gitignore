@@ -3,6 +3,7 @@
 *~
 *.bak
 *.sw?
+Pipfile.lock
 
 # Distribution / packaging
 *.egg-info/
