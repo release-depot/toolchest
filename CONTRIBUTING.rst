@@ -73,7 +73,7 @@ Ready to contribute? Here's how to set up `toolchest` for local development.
 3a. Alternatively, feel free to use pipenv if you prefer::
 
     $ pipenv --three
-    $ pipenv install --dev -r test-requirements -e .
+    $ pipenv install --dev
 
 4. Create a branch for local development::
 
