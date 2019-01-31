@@ -103,6 +103,18 @@ class TestLabelCompare(object):
         assert labelCompare(b, a) == 1
         assert labelCompare(b, b) == 0
 
+        # librpm seems to set '' to 0
+        a = ('', '1.0', '1')
+        b = ('1.0', '1')
+        c = (0, '1.0', '1')
+        d = ('0', '1.0', '1')
+        assert labelCompare(a, b) == 0
+        assert labelCompare(a, c) == 0
+        assert labelCompare(a, d) == 0
+        assert labelCompare(b, c) == 0
+        assert labelCompare(b, d) == 0
+        assert labelCompare(c, d) == 0
+
     def test_eq_epoch(self):
         a = ('1', '6.0.0', '2.el7ost')
         b = ('1', '6.0.1', '2.el7ost')

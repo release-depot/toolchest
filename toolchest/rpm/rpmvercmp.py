@@ -165,7 +165,8 @@ def labelCompare(left, right):
     epoch_l = 0
     epoch_r = 0
     if len(left) == 3:
-        epoch_l = int(left[0])
+        if left[0] != '':
+            epoch_l = int(left[0])
         version_l = str(left[1])
         release_l = str(left[2])
     elif len(left) == 2:
@@ -175,7 +176,8 @@ def labelCompare(left, right):
         raise ValueError('left is not a tuple of 2 or 3')
 
     if len(right) == 3:
-        epoch_r = int(right[0])
+        if right[0] != '':
+            epoch_r = int(right[0])
         version_r = str(right[1])
         release_r = str(right[2])
     elif len(right) == 2:
