@@ -72,7 +72,7 @@ class Spinner(object):
         self._spinner = itertools.cycle('-/|\\')
         sys.stdout.write('\\')
         while not _done:
-            sys.stdout.write('\b' + self._spinner.next())
+            sys.stdout.write('\b' + next(self._spinner))
             sys.stdout.flush()
             usleep(100000)
         sys.stdout.write('\b')
