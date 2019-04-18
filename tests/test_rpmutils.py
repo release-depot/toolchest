@@ -1,6 +1,6 @@
 import unittest
 
-from toolchest.rpm.utils import split_filename
+from toolchest.rpm.utils import split_filename, drop_epoch
 
 # Handles DLRN versions
 from toolchest.rpm.utils import labelCompare
@@ -107,3 +107,24 @@ class test_split_filename(unittest.TestCase):
         self.assertEqual(rpmLabelCompare(b, f), 1)
         self.assertEqual(rpmLabelCompare(b, g), 1)
         self.assertEqual(labelCompare(b, f), -1)
+
+
+class test_drop_epoch(unittest.TestCase):
+
+    def test_no_epoch(self):
+        assert (drop_epoch('foo-1.2-1.f23.noarch.rpm') ==
+                'foo-1.2-1.f23.noarch')
+        assert (drop_epoch('foo-1.2-1.f23.noarch') ==
+                'foo-1.2-1.f23.noarch')
+
+    def test_epoch(self):
+        assert (drop_epoch('foo-0:1.2-1.f23.noarch.rpm') ==
+                'foo-1.2-1.f23.noarch')
+        assert (drop_epoch('foo-1:1.2-1.f23.noarch') ==
+                'foo-1.2-1.f23.noarch')
+        assert (drop_epoch('foo-99999:1.2-1.f23.noarch') ==
+                'foo-1.2-1.f23.noarch')
+        assert (drop_epoch('0:foo-1.2-1.f23.noarch.rpm') ==
+                'foo-1.2-1.f23.noarch')
+        assert (drop_epoch('99999:foo-1.2-1.f23.noarch') ==
+                'foo-1.2-1.f23.noarch')

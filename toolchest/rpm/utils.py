@@ -221,6 +221,14 @@ def labelCompare(l, r):
     return label_compare(l, r)
 
 
+def drop_epoch(nevra):
+    (n, v, r, e, a) = splitFilename(nevra)
+    nvra = '-'.join([x for x in [n, v, r] if x != ''])
+    if a:
+        nvra = f'{nvra}.{a}'
+    return nvra
+
+
 def componentize(builds):
     if builds is None:
         return None
