@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [dev-packages]
-toolchest = {path = ".", extras = ["docs","test"], editable = true}
+toolchest = {path = ".",extras = ["docs","test"],editable = true}
 
 [packages]
-toolchest = {path = ".", editable = true}
+toolchest = {path = ".",editable = true}
