@@ -16,6 +16,14 @@ matrix:
       dist: xenial
       sudo: true
       env: TOXENV=py37
+    - python: 3.8
+      dist: focal
+      sudo: true
+      env: TOXENV=py38
+    - python: 3.9
+      dist: focal
+      sudo: true
+      env: TOXENV=py39
 
 # Command to run tests, e.g. python setup.py test
 script: tox
