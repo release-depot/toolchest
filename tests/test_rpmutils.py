@@ -8,6 +8,8 @@ from toolchest.rpm.utils import labelCompare
 # Compare vs. baseline
 from toolchest.rpm.rpmvercmp import labelCompare as rpmLabelCompare
 
+from toolchest.rpm.utils import cpaas_label_compare
+
 
 class test_split_filename(unittest.TestCase):
 
@@ -107,6 +109,27 @@ class test_split_filename(unittest.TestCase):
         self.assertEqual(rpmLabelCompare(b, f), 1)
         self.assertEqual(rpmLabelCompare(b, g), 1)
         self.assertEqual(labelCompare(b, f), -1)
+
+    def test_cpaas_label_compare(self):
+
+        a = ('0', '6.0.0', '2.el7ost')
+        b = ('0', '6.0.0', '3.el7ost')
+        c = ('0', '6.0.1', '0.20170.0rc1.el7ost')
+        d = ('0', '6.0.1', '1.20170.0rc1.el7ost')
+        e = ('0', '6.1.0', '1.20170.0rc1.el7ost')
+        f = ('', '6.1.0', '1.20170.0rc1.el7ost')
+
+        self.assertEqual(cpaas_label_compare(a, b), 0)
+        self.assertEqual(cpaas_label_compare(b, c), -1)
+        self.assertEqual(cpaas_label_compare(c, d), 0)
+        self.assertEqual(cpaas_label_compare(d, e), -1)
+        self.assertEqual(cpaas_label_compare(e, f), 0)
+
+        # if there's no divider, revert to normal label compare
+        a = ('0', '6.0.0', '2')
+        b = ('0', '6.0.0', '3')
+
+        self.assertEqual(cpaas_label_compare(a, b), -1)
 
 
 class test_drop_epoch(unittest.TestCase):
