@@ -211,6 +211,21 @@ def dlrn_label_compare(l, r):
     return (rpmLabelCompare((lx, lv, lr), (rx, rv, rr)), altered)
 
 
+def cpaas_label_compare(left, right):
+    if type(left) is not tuple or type(right) is not tuple:
+        raise ValueError('cpaas_label_compare requires two tuples')
+    if len(left) != 3 or len(right) != 3:
+        raise ValueError('cpaas_label_compare requires two tuples of length 3')
+
+    try:
+        l_r = left[2].split('.', 1)[1]
+        r_r = right[2].split('.', 1)[1]
+    except IndexError:
+        return rpmLabelCompare(left, right)
+
+    return rpmLabelCompare((left[0], left[1], l_r), (right[0], right[1], r_r))
+
+
 def label_compare(l, r):
     (ret, is_dlrn) = dlrn_label_compare(l, r)
     return ret
