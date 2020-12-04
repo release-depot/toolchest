@@ -217,11 +217,19 @@ def cpaas_label_compare(left, right):
     if len(left) != 3 or len(right) != 3:
         raise ValueError('cpaas_label_compare requires two tuples of length 3')
 
-    try:
-        l_r = left[2].split('.', 1)[1]
-        r_r = right[2].split('.', 1)[1]
-    except IndexError:
-        return rpmLabelCompare(left, right)
+    rx = re.compile(r'\.[0-9]+$')
+    l_m = rx.search(left[2])
+    r_m = rx.search(right[2])
+
+    if l_m:
+        l_r = left[2][0:l_m.span()[0]]
+    else:
+        l_r = left[2]
+
+    if r_m:
+        r_r = right[2][0:r_m.span()[0]]
+    else:
+        r_r = right[2]
 
     return rpmLabelCompare((left[0], left[1], l_r), (right[0], right[1], r_r))
 

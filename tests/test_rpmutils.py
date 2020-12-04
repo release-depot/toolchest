@@ -112,10 +112,10 @@ class test_split_filename(unittest.TestCase):
 
     def test_cpaas_label_compare(self):
 
-        a = ('0', '6.0.0', '2.el7ost')
-        b = ('0', '6.0.0', '3.el7ost')
-        c = ('0', '6.0.1', '0.20170.0rc1.el7ost')
-        d = ('0', '6.0.1', '1.20170.0rc1.el7ost')
+        a = ('0', '6.0.0', '3.el7ost.0')
+        b = ('0', '6.0.0', '3.el7ost.1')
+        c = ('0', '6.0.1', '1.20170.0rc1.el7ost')
+        d = ('0', '6.0.1', '1.20170.0rc1.el7ost.1')
         e = ('0', '6.1.0', '1.20170.0rc1.el7ost')
         f = ('', '6.1.0', '1.20170.0rc1.el7ost')
 
@@ -129,7 +129,14 @@ class test_split_filename(unittest.TestCase):
         a = ('0', '6.0.0', '2')
         b = ('0', '6.0.0', '3')
 
+        # Ignore divider if the main version changed
+        c = ('0', '6.0.0', '2.el7ost.0')
+        d = ('0', '6.0.0', '3.el7ost.0')
+        e = ('0', '6.0.0', '3.el7ost')
+
         self.assertEqual(cpaas_label_compare(a, b), -1)
+        self.assertEqual(cpaas_label_compare(c, d), -1)
+        self.assertEqual(cpaas_label_compare(c, e), -1)
 
 
 class test_drop_epoch(unittest.TestCase):
