@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 
 # (C) 2018 Red Hat, Inc.
-# License: Same as librpm: GPL version 2, or at your option,
-#          any later version.
+# License: Same as librpm: LGPL version 2
 
 
 # Python copy of rpmvercmp() from rpmvercmp.c
