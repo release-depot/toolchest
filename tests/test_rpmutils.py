@@ -3,7 +3,7 @@ import unittest
 from toolchest.rpm.utils import split_filename, drop_epoch
 
 # Handles DLRN versions
-from toolchest.rpm.utils import labelCompare
+from toolchest.rpm.utils import labelCompare, dlrn_label_compare
 
 # Compare vs. baseline
 from toolchest.rpm.rpmvercmp import labelCompare as rpmLabelCompare
@@ -98,6 +98,18 @@ class test_split_filename(unittest.TestCase):
         # e.g. 0.2.0rc1 needs to be > 0.2348349839021890.abc444
         self.assertEqual(rpmLabelCompare(b, f),
                          labelCompare(b, f))
+
+        # known prior test cases that were broken prior to previous
+        #  dlrn_label_compare commits
+        a = ('0', '1.2.0', '0.20191009110244.6090753.el8ost')
+        b = ('0', '1.1.0', '1.20201113133400.6e1ba65.el8ost')
+        self.assertEqual(rpmLabelCompare(a, b), labelCompare(a, b))
+        self.assertEqual(rpmLabelCompare(a, b), dlrn_label_compare(a, b)[0])
+
+        a = ('0', '2.3.2', '0.20191004134845.41e2a2b.el8ost')
+        b = ('0', '2.3.1', '1.20201113163517.41e2a2b.el8ost')
+        self.assertEqual(rpmLabelCompare(a, b), labelCompare(a, b))
+        self.assertEqual(rpmLabelCompare(a, b), dlrn_label_compare(a, b)[0])
 
     def test_cpaas_label_compare(self):
 
