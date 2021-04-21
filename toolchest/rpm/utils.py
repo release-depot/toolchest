@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import re
+import warnings
 
 from toolchest.rpm.rpmvercmp import labelCompare as rpmLabelCompare
 
@@ -117,6 +118,7 @@ def split_filename(nvr):
 
 
 def dlrn_label_compare(l, r):
+    warnings.warn("dlrn_label_compare() is deprecated; use label_compare().", DeprecationWarning)
     if type(l) is not tuple or type(r) is not tuple:
         raise ValueError('dlrn_label_compare requires two tuples')
 
@@ -235,8 +237,7 @@ def cpaas_label_compare(left, right):
 
 
 def label_compare(l, r):
-    (ret, is_dlrn) = dlrn_label_compare(l, r)
-    return ret
+    return rpmLabelCompare(l, r)
 
 
 # Preserve old method name
