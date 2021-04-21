@@ -3,7 +3,7 @@ import unittest
 from toolchest.rpm.utils import split_filename, drop_epoch
 
 # Handles DLRN versions
-from toolchest.rpm.utils import labelCompare
+from toolchest.rpm.utils import labelCompare, dlrn_label_compare
 
 # Compare vs. baseline
 from toolchest.rpm.rpmvercmp import labelCompare as rpmLabelCompare
@@ -72,15 +72,10 @@ class test_split_filename(unittest.TestCase):
         d = ('0', '6.1.10', '0.20170222164853.el7ost')
         e = ('0', '6.1.9', '1.el7ost')
         f = ('0', '6.0.0', '0.2.0rc2.el7ost')
-        g = ('0', '6.0.0', '0.3.0rc2.el7ost')
-        # new dlrn
         new_dlrn = ('0', '6.1.1', '0.2.20170217063119.ad33b59.el7ost')
 
-        # DLRN build vs not should be different
-        self.assertEqual(rpmLabelCompare(a, b), -1)
-        self.assertEqual(labelCompare(a, b), 1)
-        # Reverse
-        self.assertEqual(labelCompare(b, a), -1)
+        self.assertEqual(rpmLabelCompare(a, b),
+                         labelCompare(a, b))
 
         # Two dlrn builds should be compared the same
         self.assertEqual(rpmLabelCompare(b, c),
@@ -96,19 +91,25 @@ class test_split_filename(unittest.TestCase):
                          labelCompare(new_dlrn, e))
         self.assertEqual(rpmLabelCompare(new_dlrn, b),
                          labelCompare(new_dlrn, b))
-
-        # Micro release difference should work even if it goes from
-        # 1-2 digits (or 2-3, etc.)
-        self.assertEqual(rpmLabelCompare(d, e), 1)
-        self.assertEqual(labelCompare(d, e), -1)
-        # Reverse
-        self.assertEqual(labelCompare(e, d), 1)
+        self.assertEqual(rpmLabelCompare(d, e),
+                         labelCompare(d, e))
 
         # Release candidate DLRN builds > dlrn builds
         # e.g. 0.2.0rc1 needs to be > 0.2348349839021890.abc444
-        self.assertEqual(rpmLabelCompare(b, f), 1)
-        self.assertEqual(rpmLabelCompare(b, g), 1)
-        self.assertEqual(labelCompare(b, f), -1)
+        self.assertEqual(rpmLabelCompare(b, f),
+                         labelCompare(b, f))
+
+        # known prior test cases that were broken prior to previous
+        #  dlrn_label_compare commits
+        a = ('0', '1.2.0', '0.20191009110244.6090753.el8ost')
+        b = ('0', '1.1.0', '1.20201113133400.6e1ba65.el8ost')
+        self.assertEqual(rpmLabelCompare(a, b), labelCompare(a, b))
+        self.assertEqual(rpmLabelCompare(a, b), dlrn_label_compare(a, b)[0])
+
+        a = ('0', '2.3.2', '0.20191004134845.41e2a2b.el8ost')
+        b = ('0', '2.3.1', '1.20201113163517.41e2a2b.el8ost')
+        self.assertEqual(rpmLabelCompare(a, b), labelCompare(a, b))
+        self.assertEqual(rpmLabelCompare(a, b), dlrn_label_compare(a, b)[0])
 
     def test_cpaas_label_compare(self):
 
