@@ -131,7 +131,7 @@ def dlrn_label_compare(l, r):
     lv = l[1]
     lr = l[2]
 
-    dlrn_regex = r'^0(\.[0-9]{1,2})?\.[0-9]{14}\.'
+    dlrn_regex = r'^[012](\.[0-9]{1,2})?\.[0-9]{14}\.[0-9a-f]{7}\.'
 
     if re.match(dlrn_regex, lr):
         l_is_dlrn = True
