@@ -14,7 +14,7 @@ TEST_REQUIRES = ['coverage', 'flake8', 'pytest', 'pytest-datadir', 'tox']
 
 setup(
     name='toolchest',
-    version='0.0.7',
+    version='0.0.8',
     install_requires=['pyyaml'],
     extras_require={'test': TEST_REQUIRES,
                     'docs': ['sphinx',
