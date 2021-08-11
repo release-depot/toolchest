@@ -8,8 +8,7 @@ Welcome to toolchest's documentation!
    readme
    installation
    usage
-   source/toolchest
-   source/toolchest.rpm
+   source/modules
    contributing
    authors
    history
