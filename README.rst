@@ -6,8 +6,8 @@ toolchest
 .. image:: https://img.shields.io/pypi/v/toolchest.svg
         :target: https://pypi.python.org/pypi/toolchest
 
-.. image:: https://img.shields.io/travis/release-depot/toolchest.svg
-        :target: https://travis-ci.org/release-depot/toolchest
+.. image:: https://github.com/release-depot/toolchest/actions/workflows/test.yml/badge.svg
+        :target: https://github.com/release-depot/toolchest/actions
 
 .. image:: https://readthedocs.org/projects/toolchest/badge/?version=latest
         :target: https://toolchest.readthedocs.io/en/latest/?badge=latest
