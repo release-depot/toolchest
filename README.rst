@@ -16,41 +16,71 @@ toolchest
 
 
 
-toolchest is a collection of generic functions for release-depot.
+Toolchest is a collection of generally useful functions that can be reused in
+various settings.
 
-Prerequisites
--------------
+Find the most recent documentation at https://toolchest.readthedocs.io.
 
-toolchest runs on Python 3. Prettytable can be used, but is optional.
+Notes
+-----
+
+This library only supports python 3. Some features may still work with python 2.7 but not all of the
+syntax and features may be compatible. Prettytable can be used, but is optional.
 
 
 Installing
 ----------
 
-toolchest is available on PyPI; it can be installed by running:
+toolchest is available on PyPI; it can be installed by running::
 
   pip install toolchest
 
-Alternatively, one could simply clone this repository and run:
+Alternatively, one could also clone this repository and run::
 
-  python setup.py install
+  pip install --editable .
+
+
+Development
+-----------
+
+toolchest supports both standard python virtual environment setups and pipenv,
+which is integrated into our Makefile. To set up a pipenv-based development
+enironment, you can simply run::
+
+  make dev
+
+This will install our dev environment for the package via pipenv.  It is installed
+with --user, so it does not affect your site-packages.  Pipenv creates a unique virtualenv
+for us, which you can activate via::
+
+  pipenv shell
+
+See the `pipenv documentation <https://docs.pipenv.org/>`_ for more detail.
 
 Documentation
--------------
+*************
 
-https://toolchest.readthedocs.io.
+To build the documentation on your checkout, simply run::
+
+  make docs
 
 Contributing
-------------
+*************
 
-Please fork and issue pull requests.
+All new code should include tests that exercise the code and prove that it
+works, or fixes the bug you are trying to fix.  Any Pull Request without tests
+will not be accepted. See CONTRIBUTING.rst for more details.
 
-License
--------
+Building
+********
 
-This project is primarily licensed under the MIT license, although
-portions are licensed under the LGPL v2.1 as well - see the
-[LICENSE](LICENSE) file for details
+If you wish to build a local package for testing at any time, you can simply
+run::
+
+  make dist
+
+this will build a package with a .dev extension that you can install for testing
+and verification.
 
 Acknowledgements
 ----------------

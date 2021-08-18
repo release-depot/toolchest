@@ -51,32 +51,27 @@ clean-test: ## remove test and coverage artifacts
 	rm -fr .pytest_cache
 
 lint: ## check style with flake8
-	flake8 toolchest tests
+	pipenv run tox -eflake8
 
 test: ## run tests quickly with the default Python
-	py.test
+	pipenv run pytest
 
 test-all: ## run tests on every Python version with tox
-	tox
+	pipenv run tox
 
 coverage: ## check code coverage quickly with the default Python
-	coverage run --source toolchest -m pytest
-	coverage report -m
-	coverage html
-	$(BROWSER) htmlcov/index.html
+	pipenv run tox -epy
 
 docs: ## generate Sphinx HTML documentation, including API docs
-	rm -rf docs/source/
-	sphinx-apidoc --no-toc -o docs/source toolchest
-	$(MAKE) -C docs clean
-	$(MAKE) -C docs html
+	pipenv run $(MAKE) -C docs clean
+	pipenv run $(MAKE) -C docs html
 	$(BROWSER) docs/_build/html/index.html
 
 servedocs: docs ## compile the docs watching for changes
-	watchmedo shell-command -p '*.rst' -c '$(MAKE) -C docs html' -R -D .
+	pipenv run watchmedo shell-command -p '*.rst' -c '$(MAKE) -C docs html' -R -D .
 
 release: dist ## package and upload a release
-	twine upload dist/*
+	pipenv run twine upload dist/*
 
 dist: clean ## builds source and wheel package
 	python setup.py sdist
