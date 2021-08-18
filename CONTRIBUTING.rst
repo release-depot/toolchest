@@ -64,16 +64,21 @@ Ready to contribute? Here's how to set up `toolchest` for local development.
 
     $ git clone git@github.com:your_name_here/toolchest.git
 
-3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed, this is how you set up your fork for local development::
+3. Install your local copy into a virtualenv. Assuming you have
+   virtualenvwrapper installed, this is how you set up your fork for local
+   development::
 
     $ mkvirtualenv toolchest
     $ cd toolchest/
     $ python setup.py develop
 
-3a. Alternatively, feel free to use pipenv if you prefer::
+3a. Alternatively, use pipenv via the Makefile to setup a new virtualenv.
+    Pipenv will create a new virtualenv with packages at the correct versions.
+    Assuming you have pipenv installed, this is how you set up your fork for
+    local development::
 
-    $ pipenv --three
-    $ pipenv install --dev
+    $ make dev
+    $ pipenv shell
 
 4. Create a branch for local development::
 
@@ -84,11 +89,8 @@ Ready to contribute? Here's how to set up `toolchest` for local development.
 5. When you're done making changes, check that your changes pass flake8 and the
    tests, including testing other Python versions with tox::
 
-    $ flake8 toolchest tests
-    $ python setup.py test or py.test
-    $ tox
-
-   To get flake8 and tox, just pip install them into your virtualenv.
+    $ make lint
+    $ make test
 
 6. Commit your changes and push your branch to GitHub::
 
@@ -113,10 +115,6 @@ Before you submit a pull request, check that it meets these guidelines:
 
 Tips
 ----
-
-To run a subset of tests::
-
-$ py.test tests.test_toolchest
 
 
 Deploying
