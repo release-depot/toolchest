@@ -14,6 +14,14 @@ toolchest.genericargs
    :undoc-members:
    :show-inheritance:
 
+toolchest.hash
+--------------
+
+.. automodule:: toolchest.hash
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 toolchest.introspect
 --------------------
 
@@ -46,3 +54,4 @@ Submodules
 
    toolchest.logging
    toolchest.rpm
+   toolchest.validator
