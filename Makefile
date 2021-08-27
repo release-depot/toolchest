@@ -80,3 +80,7 @@ dist: clean ## builds source and wheel package
 
 install: clean ## install the package to the active Python's site-packages
 	python setup.py install
+
+dev: clean ## set up a development environment
+	pip3 install --user pipenv
+	pipenv install --dev
