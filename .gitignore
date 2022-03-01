@@ -11,6 +11,7 @@ Pipfile.lock
 build/
 dist/
 sdist/
+CHANGELOG.md
 
 # Unit test / coverage reports
 htmlcov/

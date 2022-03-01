@@ -7,4 +7,4 @@ name = "pypi"
 toolchest = {path = ".",editable = true}
 
 [dev-packages]
-toolchest = {path = ".", extras = ["test","docs","dist"], editable = true}
+toolchest = {path = ".", extras = ["test","docs","dist","devbase"], editable = true}
