@@ -5,13 +5,13 @@ Welcome to toolchest's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   readme
+   readme.md
    installation
    usage
    source/modules
    contributing
    authors
-   history
+   changelog.md
 
 Indices and tables
 ==================
