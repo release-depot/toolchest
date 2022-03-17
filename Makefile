@@ -75,6 +75,7 @@ release: dist ## package and upload a release
 	pipenv run twine upload dist/*
 
 dist: clean ## builds source and wheel package
+	rm -f CHANGELOG.md
 	pipenv run tox -etwine
 	ls -l dist
 
