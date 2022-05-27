@@ -117,9 +117,10 @@ def split_filename(nvr):
     return splitFilename(nvr)
 
 
-def dlrn_label_compare(l, r):
-    warnings.warn("dlrn_label_compare() is deprecated; use label_compare().", DeprecationWarning)
-    if type(l) is not tuple or type(r) is not tuple:
+def dlrn_label_compare(left, right):
+    warnings.warn("dlrn_label_compare() is deprecated; use label_compare().",
+                  DeprecationWarning)
+    if type(left) is not tuple or type(right) is not tuple:
         raise ValueError('dlrn_label_compare requires two tuples')
 
     l_is_dlrn = False
@@ -129,9 +130,9 @@ def dlrn_label_compare(l, r):
     l_is_ga = False
     r_is_ga = False
 
-    lx = l[0]
-    lv = l[1]
-    lr = l[2]
+    lx = left[0]
+    lv = left[1]
+    lr = left[2]
 
     dlrn_regex = r'^[012](\.[0-9]{1,2})?\.[0-9]{14}\.[0-9a-f]{7}\.'
 
@@ -142,9 +143,9 @@ def dlrn_label_compare(l, r):
     elif re.match(r'^0\.[0-9]{1,2}(\.|$)', lr):
         l_is_ga = True
 
-    rx = r[0]
-    rv = r[1]
-    rr = r[2]
+    rx = right[0]
+    rv = right[1]
+    rr = right[2]
 
     if re.match(dlrn_regex, rr):
         r_is_dlrn = True
@@ -154,7 +155,7 @@ def dlrn_label_compare(l, r):
         r_is_ga = True
 
     if r_is_dlrn == l_is_dlrn:
-        return (rpmLabelCompare(l, r), False)
+        return (rpmLabelCompare(left, right), False)
 
     altered = False
     if l_is_dlrn:
@@ -236,13 +237,13 @@ def cpaas_label_compare(left, right):
     return rpmLabelCompare((left[0], left[1], l_r), (right[0], right[1], r_r))
 
 
-def label_compare(l, r):
-    return rpmLabelCompare(l, r)
+def label_compare(left, right):
+    return rpmLabelCompare(left, right)
 
 
 # Preserve old method name
-def labelCompare(l, r):
-    return label_compare(l, r)
+def labelCompare(left, right):
+    return label_compare(left, right)
 
 
 def drop_epoch(nevra):
