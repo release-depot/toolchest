@@ -28,8 +28,13 @@ class test_split_filename(unittest.TestCase):
                 ('sos', '3.2', '36.el7ost.1', '', 'x86_64'))
         assert (split_filename('sos-3.2-36.el7ost.1.src.rpm') ==
                 ('sos', '3.2', '36.el7ost.1', '', ''))
-        assert (split_filename('openstack-nova-15.0.1-0.20170222170803.10a32dd.el7ost') ==  # NOQA
-                ('openstack-nova', '15.0.1', '0.20170222170803.10a32dd.el7ost', '', ''))   # NOQA
+        fn = 'openstack-nova-15.0.1-0.20170222170803.10a32dd.el7ost'
+        split_fn = ('openstack-nova',
+                    '15.0.1',
+                    '0.20170222170803.10a32dd.el7ost',
+                    '',
+                    '')
+        assert (split_filename(fn) == split_fn)
         assert (split_filename('openstack-nova-1:15.0.1-1.el7ost') ==
                 ('openstack-nova', '15.0.1', '1.el7ost', '1', ''))
 
@@ -59,10 +64,16 @@ class test_split_filename(unittest.TestCase):
                 ('', '1.2', '', '', ''))
 
     def test_absurd(self):
-        assert (split_filename('1:aarch64-ppc64le-i686-0.1-1.el7ost.src.rpm') ==
-                ('aarch64-ppc64le-i686', '0.1', '1.el7ost', '1', ''))
-        assert (split_filename('m-e-g-a-f-o-o-1.0-36.123.1333.elite.omg.long.el7ost.1.noarch.rpm') ==  # NOQA
-                ('m-e-g-a-f-o-o', '1.0', '36.123.1333.elite.omg.long.el7ost.1', '', 'noarch'))   # NOQA
+        whole_filename = '1:aarch64-ppc64le-i686-0.1-1.el7ost.src.rpm'
+        split_parts = ('aarch64-ppc64le-i686', '0.1', '1.el7ost', '1', '')
+        assert (split_filename(whole_filename) == split_parts)
+        fn = 'm-e-g-a-f-o-o-1.0-36.123.1333.elite.omg.long.el7ost.1.noarch.rpm'
+        split_fn = ('m-e-g-a-f-o-o',
+                    '1.0',
+                    '36.123.1333.elite.omg.long.el7ost.1',
+                    '',
+                    'noarch')
+        assert (split_filename(fn) == split_fn)
 
     def test_labelCompare(self):
 
