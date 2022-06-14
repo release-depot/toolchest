@@ -112,6 +112,11 @@ Before you submit a pull request, check that it meets these guidelines:
 3. The pull request should work for Python 3.6-3.9. All pull requests get run
    against our CI using github actions, and if your patch fails any tests, you
    will get an email notification from github, so it can be corrected.
+4. If you are adding a submodule, do the following:
+
+   a. Make sure that there is an :code:`__init__.py`` in the same folder as the submodule.
+   b. In :code:`docs/source/` add a file named :code:`toolchest.<submodule_path>.rst` and
+      make it the same format as the peer files there.
 
 Tips
 ----
