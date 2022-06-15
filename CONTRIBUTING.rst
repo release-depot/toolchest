@@ -117,6 +117,9 @@ Before you submit a pull request, check that it meets these guidelines:
    a. Make sure that there is an :code:`__init__.py`` in the same folder as the submodule.
    b. In :code:`docs/source/` add a file named :code:`toolchest.<submodule_path>.rst` and
       make it the same format as the peer files there.
+   c. You may also need to add the submodule to :code:`docs/source/toolchest.rst` or
+      whatever the parent module is. It should be added in the same format as the other
+      modules in the file.
 
 Tips
 ----

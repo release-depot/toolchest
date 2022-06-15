@@ -52,6 +52,7 @@ Submodules
 .. toctree::
    :maxdepth: 4
 
+   toolchest.filesystem
    toolchest.logging
    toolchest.rpm
    toolchest.validator
