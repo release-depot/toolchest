@@ -1,5 +1,5 @@
 toolchest.filesystem
------------------
+--------------------
 
 .. automodule:: toolchest.filesystem.git
    :members:
