@@ -32,7 +32,7 @@ def regex_match(pattern, arg):
     return False
 
 
-def nym(arg):
+def nym(arg, underscore='+-. !?;:\'",\t', remove='()[]{}?<>/='):
     '''
     This is for allowing case and quote flexibility for strings when
     searching dictionaries or other data sets based on user input (esp.
@@ -44,10 +44,15 @@ def nym(arg):
 
     Parameters:
         arg (string): A string to create the nym for
+        underscore (string): A set of characters to replace with underscores
+        remove (string): A set of characters to remove from the return value
 
     Returns:
-        ret (string): A lower-case string with whitespace swapped to _
+        ret (string): A lower-case string with characters translated
+                      or removed.
     '''
-    ret = arg.lower().replace(' ', '_')
-    ret = ret.replace('\t', '_')
+    if (ret := arg) not in ('', None):
+        tr = str.maketrans(underscore, '_' * len(underscore), remove)
+        ret = str(arg).lower().translate(tr) or '_'
+
     return ret
