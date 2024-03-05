@@ -11,7 +11,7 @@ def getLogger(config):
 
     :param config:  Dictionary of values meeting the criteria in the
                     `Configuration dictionary schema
-                    <https://docs.python.org/3.7/library/logging.config.html#logging-config-dictschema>`_.
+                    <https://docs.python.org/3/library/logging.config.html#logging-config-dictschema>`_.
 
     """
     if 'version' not in config:
